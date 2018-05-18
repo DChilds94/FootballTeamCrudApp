@@ -1,9 +1,11 @@
 package models;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
+@Entity
+@Table(name="managers")
 public class Manager {
 
     private int id;
@@ -14,12 +16,15 @@ public class Manager {
     public Manager() {
     }
 
-    public Manager(String name, Team team, List<Player> players) {
+    public Manager(String name) {
         this.name = name;
         this.team = team;
         this.players =  new HashSet<Player>();
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     public int getId() {
         return id;
     }
@@ -28,6 +33,7 @@ public class Manager {
         this.id = id;
     }
 
+    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -36,6 +42,7 @@ public class Manager {
         this.name = name;
     }
 
+    @OneToOne(cascade = CascadeType.PERSIST)
     public Team getTeam() {
         return team;
     }
@@ -44,6 +51,7 @@ public class Manager {
         this.team = team;
     }
 
+    @OneToMany(mappedBy = "manager")
     public Set<Player> getPlayers() {
         return players;
     }

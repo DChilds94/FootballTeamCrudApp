@@ -1,8 +1,11 @@
 package models;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
+@Table(name = "competition")
 public class Competition {
 
     private int id;
@@ -17,6 +20,9 @@ public class Competition {
         this.teams = new HashSet<Team>();
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     public int getId() {
         return id;
     }
@@ -25,6 +31,7 @@ public class Competition {
         this.id = id;
     }
 
+    @Column
     public String getName() {
         return name;
     }
@@ -33,6 +40,7 @@ public class Competition {
         this.name = name;
     }
 
+    @OneToMany(mappedBy = "competition")
     public Set<Team> getTeams() {
         return teams;
     }
