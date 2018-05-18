@@ -1,26 +1,34 @@
-import models.Player;
-import models.Team;
-import org.junit.Before;
-import org.junit.Test;
-
-import static junit.framework.Assert.assertEquals;
-
-public class TeamTest {
-
-    Team team;
-    Player player;
-
-//    @Before
-//    public void before() {
-//        player =  new Player("Test");
-//        team = new Team("Spurs");
+//import models.Manager;
+//import models.Player;
+//import models.Team;
+//import org.junit.Before;
+//import org.junit.Test;
 //
-//    }
+//import java.util.HashSet;
+//import java.util.Set;
 //
-//    @Test
-//    public void canAddPlayer(){
+//import static junit.framework.Assert.assertEquals;
+//import static junit.framework.Assert.assertNotNull;
 //
-//        team.addPlayerToTeam(player);
-//        assertEquals(1, team.countPlayers());
-//    }
-}
+//public class TeamTest {
+//
+//    Set<Manager> manager;
+//    Team team;
+//    Player player;
+//
+////
+////    @Before
+////    public void before() {
+////        manager = new HashSet<Manager>();
+////        team = new Team("Spurs");
+////        player =  new Player("Test", team);
+////
+////    }
+////
+////    @Test
+////    public void canAddPlayer(){
+////
+////        team.addPlayerToTeam(player);
+////        assertEquals(1, team.countPlayers());
+////    }
+////

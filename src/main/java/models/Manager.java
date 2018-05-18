@@ -17,6 +17,7 @@ public class Manager {
 
     public Manager(String name) {
         this.name = name;
+        this.team = team;
     }
 
     @Id
@@ -47,5 +48,6 @@ public class Manager {
     public void setTeam(Team team) {
         this.team = team;
     }
+
 
 }
