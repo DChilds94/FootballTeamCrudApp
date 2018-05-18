@@ -1,7 +1,10 @@
 import db.DBHelper;
+import db.DBTeam;
 import models.Manager;
 import models.Player;
 import models.Team;
+
+import java.util.List;
 
 public class Runner {
 
@@ -10,12 +13,13 @@ public class Runner {
         Manager manager2 = new Manager("Dyche");
         DBHelper.save(manager1);
         DBHelper.save(manager2);
-        Team team1 = new Team("Spurs");
+        Team team1 = new Team("Spurs", manager1);
         DBHelper.save(team1);
-        Player player1 = new Player("Harry Kane", manager1, team1);
+        Player player1 = new Player("Harry Kane", team1);
         DBHelper.save(player1);
 
-
+        team1.addPlayerToTeam(player1);
+        List<Player> playersInTeam = DBTeam.showPlayersInATeam(team1);
 
     }
 }

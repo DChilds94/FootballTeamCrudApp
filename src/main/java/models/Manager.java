@@ -11,15 +11,12 @@ public class Manager {
     private int id;
     private String name;
     private Team team;
-    private Set<Player> players;
 
     public Manager() {
     }
 
     public Manager(String name) {
         this.name = name;
-        this.team = team;
-        this.players =  new HashSet<Player>();
     }
 
     @Id
@@ -42,7 +39,7 @@ public class Manager {
         this.name = name;
     }
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne(mappedBy = "manager", cascade = CascadeType.PERSIST)
     public Team getTeam() {
         return team;
     }
@@ -51,12 +48,4 @@ public class Manager {
         this.team = team;
     }
 
-    @OneToMany(mappedBy = "manager")
-    public Set<Player> getPlayers() {
-        return players;
-    }
-
-    public void setPlayers(Set<Player> players) {
-        this.players = players;
-    }
 }

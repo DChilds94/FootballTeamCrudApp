@@ -8,15 +8,13 @@ public class Player {
 
     private int id;
     private String name;
-    private Manager manager;
     private Team team;
 
     public Player() {
     }
 
-    public Player(String name, Manager manager, Team team) {
+    public Player(String name, Team team) {
         this.name = name;
-        this.manager = manager;
         this.team = team;
     }
 
@@ -40,15 +38,6 @@ public class Player {
         this.name = name;
     }
 
-    @ManyToOne()
-    @JoinColumn(name = "manager_id", nullable = false)
-    public Manager getManager() {
-        return manager;
-    }
-
-    public void setManager(Manager manager) {
-        this.manager = manager;
-    }
 
     @ManyToOne()
     @JoinColumn(name = "team_id", nullable = false)
@@ -59,4 +48,6 @@ public class Player {
     public void setTeam(Team team) {
         this.team = team;
     }
+
+
 }

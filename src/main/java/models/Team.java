@@ -12,16 +12,14 @@ public class Team {
     private String name;
     private Manager manager;
     private Set<Player> players;
-    private Competition competition;
 
     public Team() {
     }
 
-    public Team(String name) {
+    public Team(String name, Manager manager) {
         this.name = name;
         this.manager = manager;
         this.players = new HashSet<Player>();
-        this.competition = competition;
     }
 
     @Id
@@ -62,13 +60,12 @@ public class Team {
         this.players = players;
     }
 
-    @ManyToOne()
-    @JoinColumn(name = "competition_id", nullable = false)
-    public Competition getCompetition() {
-        return competition;
+
+    public void addPlayerToTeam(Player player){
+        this.players.add(player);
     }
 
-    public void setCompetition(Competition competition) {
-        this.competition = competition;
+    public int countPlayers() {
+        return this.players.size();
     }
 }
