@@ -12,6 +12,7 @@ public class Team {
     private String name;
     private Manager manager;
     private Set<Player> players;
+    private Set<Match> matches;
 
     public Team() {
     }
@@ -20,6 +21,7 @@ public class Team {
         this.name = name;
         this.manager = manager;
         this.players = new HashSet<Player>();
+        this.matches = new HashSet<Match>();
     }
 
     @Id
@@ -60,6 +62,17 @@ public class Team {
         this.players = players;
     }
 
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    @JoinTable(name = "team_match",
+    joinColumns = {@JoinColumn(name =" team_id", nullable = false, updatable = false)},
+    inverseJoinColumns =  {@JoinColumn(name="match_id", nullable = false, updatable = false)})
+    public Set<Match> getMatches() {
+        return matches;
+    }
+
+    public void setMatches(Set<Match> matches) {
+        this.matches = matches;
+    }
 
     public void addPlayerToTeam(Player player){
         this.players.add(player);

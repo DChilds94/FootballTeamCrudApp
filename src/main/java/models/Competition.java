@@ -10,12 +10,15 @@ public class Competition {
 
     private int id;
     private String name;
+    private Set<Match> matches;
 
     public Competition() {
     }
 
-    public Competition(String name, Set<Team> teams) {
+    public Competition(String name) {
         this.name = name;
+        this.matches = new HashSet<Match>();
+
     }
 
     @Id
@@ -38,5 +41,13 @@ public class Competition {
         this.name = name;
     }
 
+    @OneToMany(mappedBy = "competition")
+    public Set<Match> getMatches() {
+        return matches;
+    }
+
+    public void setMatches(Set<Match> matches) {
+        this.matches = matches;
+    }
 }
 
