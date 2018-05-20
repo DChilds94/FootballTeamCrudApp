@@ -50,7 +50,7 @@ public class Competition {
         this.matches = matches;
     }
 
-    public void addMatch(Match match){
+    public void addMatchToComp(Match match){
         this.matches.add(match);
     }
 }

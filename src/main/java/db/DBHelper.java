@@ -74,9 +74,9 @@ public class DBHelper {
     }
 
 
-    public static void addTeamToMatch(Team team, Match match){
+    public static void addTeamToMatch(Team team, Match match) {
         team.addMatch(match);
         match.addTeam(team);
-        save(match);
     }
+
 }

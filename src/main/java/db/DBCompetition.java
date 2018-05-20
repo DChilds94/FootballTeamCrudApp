@@ -1,6 +1,7 @@
 package db;
 
-import models.Manager;
+import models.Competition;
+import models.Match;
 import models.Player;
 import models.Team;
 import org.hibernate.Criteria;
@@ -11,27 +12,23 @@ import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
 
-public class DBTeam {
+public class DBCompetition {
 
     private static Session session;
     private static Transaction transaction;
 
-
-//    in the function I want to return a list of players in a team..
-    public static List<Player> showPlayersInATeam(Team team){
+    public static List<Match> showMatchesInAComp(Competition competition){
         session = HibernateUtil.getSessionFactory().openSession();
-        List<Player> playersInTeam = null;
+        List<Match> fixtures = null;
         try {
-            Criteria cr = session.createCriteria(Player.class);
-            cr.add(Restrictions.eq("team", team));
-            playersInTeam = cr.list();
+            Criteria cr = session.createCriteria(Match.class);
+            cr.add(Restrictions.eq("competition", competition));
+            fixtures = cr.list();
 
         } catch (HibernateException e) {
             e.printStackTrace();
         } finally {
         }session.close();
-        return playersInTeam;
+        return fixtures;
     }
 }
-
-
