@@ -31,4 +31,6 @@ public class DBCompetition {
         }session.close();
         return fixtures;
     }
+
+
 }
