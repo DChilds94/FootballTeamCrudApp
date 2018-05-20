@@ -43,8 +43,8 @@ public class Match {
 
     @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name = "team_match",
-            joinColumns = {@JoinColumn(name =" match_id", nullable = false, updatable = false)},
-            inverseJoinColumns =  {@JoinColumn(name="team_id", nullable = false, updatable = false)})
+            joinColumns = {@JoinColumn(name = "match_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "team_id", nullable = false, updatable = false)})
     public Set<Team> getTeam() {
         return team;
     }

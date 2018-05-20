@@ -62,10 +62,11 @@ public class Team {
         this.players = players;
     }
 
+
     @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name = "team_match",
-    joinColumns = {@JoinColumn(name =" team_id", nullable = false, updatable = false)},
-    inverseJoinColumns =  {@JoinColumn(name="match_id", nullable = false, updatable = false)})
+            inverseJoinColumns = {@JoinColumn(name = "match_id", nullable = false, updatable = false)},
+            joinColumns = {@JoinColumn(name = "team_id", nullable = false, updatable = false)})
     public Set<Match> getMatches() {
         return matches;
     }
@@ -80,6 +81,10 @@ public class Team {
 
     public int countPlayers() {
         return this.players.size();
+    }
+
+    public void addMatch(Match match){
+        this.matches.add(match);
     }
 
 }
