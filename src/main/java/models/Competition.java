@@ -49,5 +49,9 @@ public class Competition {
     public void setMatches(Set<Match> matches) {
         this.matches = matches;
     }
+
+    public void addMatch(Match match){
+        this.matches.add(match);
+    }
 }
 

@@ -52,4 +52,8 @@ public class Match {
     public void setTeam(Set<Team> team) {
         this.team = team;
     }
+
+    public void addTeam(Team team){
+        this.team.add(team);
+    }
 }

@@ -32,10 +32,6 @@ public class DBTeam {
         }session.close();
         return playersInTeam;
     }
-
-
-
-
-}
+    }
 
 

@@ -23,6 +23,7 @@ public class Runner {
 
         team1.addPlayerToTeam(player1);
         List<Player> playersInTeam = DBTeam.showPlayersInATeam(team1);
+        match.addTeam(team1);
 
     }
 }
