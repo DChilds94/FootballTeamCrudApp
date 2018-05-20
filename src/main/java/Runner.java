@@ -1,6 +1,7 @@
 import db.DBHelper;
 import db.DBTeam;
 import models.*;
+import org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateNameHelper;
 
 import java.util.List;
 
@@ -28,6 +29,8 @@ public class Runner {
         List<Player> playersInTeam = DBTeam.showPlayersInATeam(team1);
         competition.addMatch(match);
         match.addTeam(team1);
+        team1.addMatch(match);
+        DBHelper.addTeamToMatch(team1, match);
 
     }
 }
